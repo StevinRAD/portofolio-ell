@@ -3,7 +3,7 @@
  / ___|___  ___ _ __ ___   ___  ___    |_   _| |__   ___ _ __ ___   ___  ___
 | |   / _ \/ __| '_ ` _ \ / _ \/ __|_____| | | '_ \ / _ \ '_ ` _ \ / _ \/ __|
 | |__| (_) \__ \ | | | | | (_) \__ \_____| | | | | |  __/ | | | | |  __/\__ \
- \____\___/|___/_| |_| |_|\___/|___/     |_| |_| |_|\___|_| |_| |_|\___||___/
+ \____\___/|___/_| |_| |_|\___/|___/     |_| |_| |_|\___||___/
 
 ******************************************************************************/
 
@@ -239,3 +239,145 @@ function showAlertBox(response, message) {
     }
     $alContainer.fadeIn(300).delay(2000).fadeOut(400);
 }
+
+/********** LOGIKA CHAT WIDGET TELEGRAM (DUA ARAH, PRIVATE & USER ID) **********/
+document.addEventListener("DOMContentLoaded", function() {
+    const chatBtn = document.getElementById("chat-widget-btn");
+    const chatWindow = document.getElementById("chat-window");
+    const closeBtn = document.getElementById("close-chat-btn");
+    const sendBtn = document.getElementById("send-chat-btn");
+    const chatInput = document.getElementById("chat-input");
+    const quickReplies = document.querySelectorAll(".quick-reply-btn");
+    const chatBody = document.getElementById("chat-body");
+
+    // SETUP TELEGRAM KESINI (GANTI DENGAN MILIKMU!)
+    const botToken = "8279921813:AAFQn4fQo0fw5bYS-bAG5X8UrDXCdbpKmyY"; 
+    const chatId = "6450647898"; 
+
+    // ==========================================
+    // FITUR: GENERATE USER ID ACAK
+    // ==========================================
+    // Cek apakah user sudah punya ID di browsernya
+    let guestId = localStorage.getItem("guestId");
+    if (!guestId) {
+        // Jika belum, buatkan ID acak (contoh: Guest-A1B2C)
+        const randomStr = Math.random().toString(36).substring(2, 7).toUpperCase();
+        guestId = "Guest-" + randomStr;
+        localStorage.setItem("guestId", guestId);
+    }
+
+    // Array untuk menyimpan ID pesan yang dikirim oleh pengunjung INI
+    // Kita pakai localStorage agar tidak hilang saat di-refresh
+    let mySentMessageIds = JSON.parse(localStorage.getItem("mySentMessageIds")) || [];
+
+    // Buka/Tutup Chat dengan Animasi
+    chatBtn.addEventListener("click", () => {
+        chatBtn.classList.add("clicked");
+        setTimeout(() => chatBtn.classList.remove("clicked"), 300);
+        chatWindow.classList.toggle("show");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        chatWindow.classList.remove("show");
+    });
+
+    // Fungsi Kirim Pesan dari Website ke Telegram
+    function sendMessage(text) {
+        if (text.trim() === "") return;
+
+        // Tampilkan pesan user di website (Warna Orange)
+        const userMsg = document.createElement("p");
+        userMsg.textContent = text;
+        userMsg.style.cssText = "background: #FFA500; color: white; padding: 10px; border-radius: 10px; font-size: 14px; margin-bottom: 10px; align-self: flex-end; text-align: right;";
+        chatBody.appendChild(userMsg);
+        chatInput.value = "";
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Kirim ke Telegram beserta Guest ID-nya
+        const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+        fetch(telegramUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: `Pesan dari [${guestId}]:\n\n"${text}"` // Menambahkan ID disini
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                // SIMPAN ID PESAN YANG BERHASIL DIKIRIM (agar bot tahu ini pesan dia)
+                mySentMessageIds.push(data.result.message_id);
+                // Batasi array agar tidak terlalu besar (simpan 50 pesan terakhir saja)
+                if(mySentMessageIds.length > 50) mySentMessageIds.shift();
+                
+                localStorage.setItem("mySentMessageIds", JSON.stringify(mySentMessageIds));
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    }
+
+    // Event kirim pesan
+    sendBtn.addEventListener("click", () => sendMessage(chatInput.value));
+    chatInput.addEventListener("keypress", function(e) {
+        if (e.key === "Enter") sendMessage(chatInput.value);
+    });
+
+    // Event klik Komentar Cepat
+    quickReplies.forEach(btn => {
+        btn.addEventListener("click", function() {
+            sendMessage(this.textContent);
+            document.querySelector(".quick-replies").style.display = "none";
+        });
+    });
+
+    // ==========================================
+    // FITUR: MENDENGARKAN BALASAN DARI BOT (HANYA YANG DI-REPLY)
+    // ==========================================
+    let lastUpdateId = 0;
+    
+    function getTelegramUpdates() {
+        const getUpdatesUrl = `https://api.telegram.org/bot${botToken}/getUpdates?offset=${lastUpdateId + 1}`;
+        
+        fetch(getUpdatesUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok && data.result.length > 0) {
+                    data.result.forEach(update => {
+                        lastUpdateId = update.update_id; // Update ID terakhir
+                        
+                        // Cek jika ada pesan dan itu dari admin (kamu)
+                        if (update.message && update.message.chat.id.toString() === chatId && update.message.text) {
+                            
+                            // PASTIKAN PESAN INI ADALAH "REPLY" DARI PESAN PENGUNJUNG INI
+                            let isReplyToMe = false;
+                            
+                            if (update.message.reply_to_message && update.message.reply_to_message.message_id) {
+                                if (mySentMessageIds.includes(update.message.reply_to_message.message_id)) {
+                                    isReplyToMe = true;
+                                }
+                            }
+
+                            if (isReplyToMe) {
+                                // Tampilkan pesan ke layar pengunjung
+                                const botReply = document.createElement("p");
+                                botReply.textContent = update.message.text;
+                                botReply.className = "bot-msg"; 
+                                chatBody.appendChild(botReply);
+                                chatBody.scrollTop = chatBody.scrollHeight;
+
+                                // Buka jendela chat jika tertutup
+                                if (!chatWindow.classList.contains("show")) {
+                                    chatWindow.classList.add("show");
+                                }
+                            }
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error("Gagal mengambil update:", error));
+    }
+
+    // Cek pesan baru setiap 3 detik
+    setInterval(getTelegramUpdates, 3000);
+});

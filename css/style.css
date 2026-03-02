@@ -3,7 +3,7 @@
  / ___|___  ___ _ __ ___   ___  ___    |_   _| |__   ___ _ __ ___   ___  ___
 | |   / _ \/ __| '_ ` _ \ / _ \/ __|_____| | | '_ \ / _ \ '_ ` _ \ / _ \/ __|
 | |__| (_) \__ \ | | | | | (_) \__ \_____| | | | | |  __/ | | | | |  __/\__ \
- \____\___/|___/_| |_| |_|\___/|___/     |_| |_| |_|\___|_| |_| |_|\___||___/
+ \____\___/|___/_| |_| |_|\___/|___/     |_| |_| |_|\___||___/
 
 ******************************************************************************/
 
@@ -895,6 +895,8 @@ header .nav-menu .social-links .social-link {
 	margin-left: 18px;
 	margin-right: 18px;
 	color: #888;
+    cursor: default; /* Kursor default karena bukan link */
+    user-select: none; /* Mencegah seleksi klik ganda */
 }
 
 header .nav-menu .social-links .social-link:hover {
@@ -2075,4 +2077,160 @@ header .back-button i {
 		min-height: 30vh;
 		overflow-y: scroll;
 	}
+}
+
+/* =========================================
+   CHAT WIDGET CUSTOM CSS (TEMA ORANGE)
+   ========================================= */
+
+/* Posisi Tombol Mengambang di Kanan Bawah */
+.chat-widget-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #FFA500; /* Ubah ke Orange */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.chat-widget-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Animasi saat diklik */
+.chat-widget-btn.clicked {
+    animation: clickBounce 0.3s ease;
+}
+
+@keyframes clickBounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.8); }
+    100% { transform: scale(1); }
+}
+
+/* Jendela Chat */
+.chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none; /* Sembunyikan awal */
+    flex-direction: column;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+/* Class untuk memunculkan chat */
+.chat-window.show {
+    display: flex;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-header {
+    background: #FFA500; /* Ubah ke Orange */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.close-chat-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-body {
+    padding: 15px;
+    background: #f4f4f4;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.bot-msg {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: inline-block;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+/* Tombol Komentar Cepat */
+.quick-replies {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.quick-reply-btn {
+    background: transparent;
+    border: 1px solid #FFA500; /* Ubah ke Orange */
+    color: #FFA500; /* Ubah ke Orange */
+    padding: 8px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.quick-reply-btn:hover {
+    background: #FFA500; /* Ubah ke Orange */
+    color: white;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 10px;
+    background: white;
+    border-top: 1px solid #eee;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    color: #333;
+}
+
+#chat-input:focus {
+    border-color: #FFA500;
+}
+
+.send-chat-btn {
+    background: #FFA500; /* Ubah ke Orange */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    cursor: pointer;
 }
