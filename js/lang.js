@@ -34,7 +34,6 @@ const translations = {
         about_job_label: 'Pekerjaan',
         about_job_value: 'Teknisi IT',
         about_skills_title: 'Keahlian',
-        about_cv_btn: 'Download CV',
         
         // Services
         service_dev_title: 'Pengembang Web',
@@ -149,7 +148,6 @@ const translations = {
         about_job_label: 'Job',
         about_job_value: 'IT Technician',
         about_skills_title: 'Skills',
-        about_cv_btn: 'Download CV',
         
         // Services
         service_dev_title: 'Web Developer',
