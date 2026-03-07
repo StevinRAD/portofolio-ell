@@ -57,6 +57,21 @@ header .nav-menu .social-links::before {
     margin-bottom: 10px;
 }
 
+/* Nav menu: default orange, hover/active white */
+header .nav-menu .nav-menu--link {
+    color: var(--accent-orange);
+}
+
+header .nav-menu .nav-menu--link i,
+header .nav-menu .nav-menu--link span {
+    color: inherit;
+}
+
+header .nav-menu .nav-menu--link:hover,
+header .nav-menu .nav-menu--link.link--active {
+    color: #ffffff;
+}
+
 /* Programming language icon colors on hover */
 header .nav-menu .social-links .social-link i {
     transition: color 0.25s ease;
