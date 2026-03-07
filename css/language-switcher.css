@@ -1,4 +1,8 @@
 /* Language Switcher Styling */
+:root {
+    --accent-orange: #FFA500;
+}
+
 .logo {
     display: inline-flex;
     align-items: center;
@@ -6,7 +10,7 @@
     min-width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #FFA500, #FF8C00);
+    background: var(--accent-orange);
     transition: all 0.3s ease;
     font-weight: bold;
     color: white;
@@ -16,8 +20,8 @@
 
 .logo:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
-    background: linear-gradient(45deg, #FF8C00, #FFA500);
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.45);
+    background: var(--accent-orange);
 }
 
 .logo span {
@@ -33,4 +37,99 @@
 
 .logo:active span {
     transform: scale(0.9);
+}
+
+/* Divider so skill icons are clearly separate from nav buttons */
+header .nav-menu .social-links {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 165, 0, 0.45);
+    position: relative;
+}
+
+header .nav-menu .social-links::before {
+    content: "Bahasa Pemrograman";
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #9a9a9a;
+    margin-bottom: 10px;
+}
+
+/* Programming language icon colors on hover */
+header .nav-menu .social-links .social-link i {
+    transition: color 0.25s ease;
+}
+
+header .nav-menu .social-links .social-link:hover .fa-html5 {
+    color: #E34F26;
+}
+
+header .nav-menu .social-links .social-link:hover .fa-css3-alt {
+    color: #1572B6;
+}
+
+header .nav-menu .social-links .social-link:hover .fa-js {
+    color: #F7DF1E;
+}
+
+header .nav-menu .social-links .social-link:hover .fa-php {
+    color: #777BB4;
+}
+
+header .nav-menu .social-links .social-link:hover .fa-python {
+    color: #3776AB;
+}
+
+header .nav-menu .social-links .social-link:hover .fa-java {
+    color: #ED8B00;
+}
+
+/* Force one consistent orange accent across the site */
+header .social-links .social-link:hover,
+.preloader .loading-text span:before,
+.section-about .about-info p strong,
+.section-about .services .service-item i,
+.section-about .testimonials .testimonial-item .description:before,
+.section-about .testimonials .testimonial-item .rating li,
+.section-blog .blog-item .post-content .cat,
+.page.section-home .banner-text .animate-title,
+.section-resume .experience h5,
+.section-resume .education h5,
+.single-blog .blog-category li a {
+    color: var(--accent-orange);
+}
+
+header .logo:before,
+header .menu-button:before,
+.main-btn:hover,
+.sub-heading h3:before,
+.section-about .about-info .about-list li .title:before,
+.section-contact .contact-detail .contact-info li .title:before,
+.section-contact .contact-detail .social-media h4:before,
+.section-portfolio .portfolio-filter ul li.active,
+.section-portfolio .portfolio-items .item figure,
+.section-resume .skills .skill-item .progress .progress-bar,
+header .back-button:before {
+    background-color: var(--accent-orange);
+}
+
+.main-btn,
+.main-btn:hover,
+blockquote,
+.section-resume .experience,
+.section-resume .education,
+.single-blog .blog-category li,
+.section-resume .skills .skill-item .progress .progress-bar:after {
+    border-color: var(--accent-orange);
+}
+
+.main-btn {
+    color: var(--accent-orange);
+}
+
+.section-resume .experience .event:after,
+.section-resume .education .event:after {
+    box-shadow: 0 0 0 4px var(--accent-orange);
 }
