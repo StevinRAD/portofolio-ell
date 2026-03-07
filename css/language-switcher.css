@@ -1,0 +1,36 @@
+/* Language Switcher Styling */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #FFA500, #FF8C00);
+    transition: all 0.3s ease;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    padding: 0;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+    background: linear-gradient(45deg, #FF8C00, #FFA500);
+}
+
+.logo span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.logo:active span {
+    transform: scale(0.9);
+}

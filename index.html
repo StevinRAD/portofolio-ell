@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="css/plugins.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/tan-color.css" />
+        <link rel="stylesheet" type="text/css" href="css/language-switcher.css" />
 
         <script src="js/modernizr.js"></script>
 
@@ -37,7 +38,7 @@
         </div>
         <header>
 
-            <a class="logo" href="#home"><span>ID</span></a>
+            <a class="logo" href="javascript:void(0);" onclick="toggleLanguage()" style="cursor: pointer;" title="Toggle Language"><span>ID</span></a>
 
             <div class="menu-button">
                 <span></span>
@@ -47,12 +48,11 @@
 
             <nav class="nav-menu">
                 <div class="nav-menu--links">
-                    <a class="nav-menu--link link--active" href="#home"><i class="fas fa-home"></i><span>Beranda</span></a>
-                    <a class="nav-menu--link" href="#about"><i class="fas fa-user"></i><span>Tentang</span></a>
-                    <a class="nav-menu--link" href="#resume"><i class="fas fa-address-card"></i><span>Riwayat</span></a>
-                    <a class="nav-menu--link" href="javascript:void(0);" onclick="sedangPerbaikan('Portfolio')"><i class="fas fa-briefcase"></i><span>Portfolio</span></a>
-                    <a class="nav-menu--link" href="#blog"><i class="fas fa-book"></i><span>Blog</span></a>
-                    <a class="nav-menu--link" href="#contact"><i class="fas fa-envelope"></i><span>Kontak</span></a>
+                    <a class="nav-menu--link link--active" href="#home"><i class="fas fa-home"></i><span data-lang-key="nav_home">Beranda</span></a>
+                    <a class="nav-menu--link" href="#about"><i class="fas fa-user"></i><span data-lang-key="nav_about">Tentang</span></a>
+                    <a class="nav-menu--link" href="#resume"><i class="fas fa-address-card"></i><span data-lang-key="nav_resume">Riwayat</span></a>
+                    <a class="nav-menu--link" href="#blog"><i class="fas fa-book"></i><span data-lang-key="nav_blog">Blog</span></a>
+                    <a class="nav-menu--link" href="#contact"><i class="fas fa-envelope"></i><span data-lang-key="nav_contact">Kontak</span></a>
                 </div>
 
                 <div class="social-links">
@@ -77,7 +77,7 @@
 </div>
 
                 <div class="copy">
-                    <p>Copyright © 2026 elloe, Semua hak dilindungi undang-undang.</p>
+                    <p data-lang-key="copyright">Copyright © 2026 elloe, Semua hak dilindungi undang-undang.</p>
                 </div>
 
             </nav>
@@ -85,7 +85,7 @@
         </header>
         <div id="main" class="pages-stack">
 
-            <section id="home"  class="page section-home" style="background-image: url('img/background/bg-img.jpeg');">
+            <section id="home" class="page section-home" style="background-image: url('img/background/bg-img.jpeg');">
                 <div class="banner-text">
                     <div class="profile-img">
                         <img src="img/profile-img.png" alt="person-image">
@@ -107,7 +107,7 @@
                     <div class="container">
 
                         <div class="page-heading">
-                            <h2 data-shadow="Tentang">Tentang</h2>
+                            <h2 data-shadow="Tentang" data-lang-key="about_title">Tentang</h2>
                         </div>
 
                         <div class="row about-info mb-60">
@@ -121,21 +121,21 @@
 
                             <div class="col-lg-7">
                                 <h3 class="mb-20">Web Designer & Developer</h3>
-                                <p>Hai! Saya <strong>Stevin</strong>. Saya adalah seorang pengembang Web dengan beberapa keahlian di bidang <strong>HTML5, CSS3, JavaScript, jQuery, Angular JS</strong>. Saya memiliki Tujuan untuk mencoba hal baru yang belum pernah saya lakukan.</p>
+                                <p data-lang-key="about_intro">Hai! Saya <strong>Stevin</strong>. Saya adalah seorang pengembang Web dengan beberapa keahlian di bidang <strong>HTML5, CSS3, JavaScript, jQuery, Angular JS</strong>. Saya memiliki Tujuan untuk mencoba hal baru yang belum pernah saya lakukan.</p>
 
                                 <div class="row mb-20">
                                     <div class="col-sm-6">
                                         <ul class="about-list">
-                                            <li> <span class="title">Nama</span> <span class="value">Stevin R.A.D Sianturi</span> </li>
-                                            <li> <span class="title">Umur</span> <span class="value">22 Tahun</span> </li>
-                                            <li> <span class="title">Email</span> <span class="value">sstepin3rd@gmail.com</span> </li>
+                                            <li> <span class="title" data-lang-key="about_name_label">Nama</span> <span class="value" data-lang-key="about_name_value">Stevin R.A.D Sianturi</span> </li>
+                                            <li> <span class="title" data-lang-key="about_age_label">Umur</span> <span class="value" data-lang-key="about_age_value">22 Tahun</span> </li>
+                                            <li> <span class="title" data-lang-key="about_email_label">Email</span> <span class="value" data-lang-key="about_email_value">sstepin3rd@gmail.com</span> </li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-6">
                                         <ul class="about-list">
-                                            <li> <span class="title">Phone</span> <span class="value">+6282268426070</span> </li>
-                                            <li> <span class="title">Alamat</span> <span class="value">Medan</span> </li>
-                                            <li> <span class="title">Pekerjaan</span> <span class="value">Teknisi IT</span> </li>
+                                            <li> <span class="title" data-lang-key="about_phone_label">Phone</span> <span class="value">+6282268426070</span> </li>
+                                            <li> <span class="title" data-lang-key="about_address_label">Alamat</span> <span class="value" data-lang-key="about_address_value">Medan</span> </li>
+                                            <li> <span class="title" data-lang-key="about_job_label">Pekerjaan</span> <span class="value" data-lang-key="about_job_value">Teknisi IT</span> </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -143,7 +143,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="resume-button">
-                                            <a class="main-btn" href="javascript:void(0);" onclick="tidakAdacv('CV')">Download CV</a>
+                                            <a class="main-btn" href="javascript:void(0);" onclick="tidakAdacv('CV')" data-lang-key="about_cv_btn">Download CV</a>
                                         </div>
                                     </div>
                                 </div>
@@ -153,39 +153,39 @@
                         <div class="row services mb-20">
                             <div class="col-md-12">
                                 <div class="sub-heading">
-                                    <h3 >Keahlian</h3>
+                                    <h3 data-lang-key="about_skills_title">Keahlian</h3>
                                 </div>
                             </div>
 
                             <div class="col-lg-3 col-sm-6">
                                 <div class="service-item">
                                     <i class="icon-desktop"></i>
-                                    <h4 class="title">Pengembang Web</h4>
-                                    <p>Saya adalah Web Developer yang fokus pada pembuatan situs web responsif, cepat, dan fungsional. Saya berkomitmen mengubah ide kreatif menjadi solusi digital yang memberikan pengalaman terbaik bagi pengguna.</p>
+                                    <h4 class="title" data-lang-key="service_dev_title">Pengembang Web</h4>
+                                    <p data-lang-key="service_dev_desc">Saya adalah Web Developer yang fokus pada pembuatan situs web responsif, cepat, dan fungsional. Saya berkomitmen mengubah ide kreatif menjadi solusi digital yang memberikan pengalaman terbaik bagi pengguna.</p>
                                 </div>
                             </div>
 
                             <div class="col-lg-3 col-sm-6">
                                 <div class="service-item">
                                     <i class="icon-camera"></i>
-                                    <h4 class="title">FG | VG</h4>
-                                    <p>Menangkap momen dan merangkainya menjadi cerita visual yang bermakna. Saya berdedikasi menciptakan konten foto dan video dengan estetika tinggi untuk mengabadikan setiap pesan secara autentik.</p>
+                                    <h4 class="title" data-lang-key="service_fg_title">FG | VG</h4>
+                                    <p data-lang-key="service_fg_desc">Menangkap momen dan merangkainya menjadi cerita visual yang bermakna. Saya berdedikasi menciptakan konten foto dan video dengan estetika tinggi untuk mengabadikan setiap pesan secara autentik.</p>
                                 </div>
                             </div>
 
                             <div class="col-lg-3 col-sm-6">
                                 <div class="service-item">
                                     <i class="icon-paintbrush"></i>
-                                    <h4 class="title">Graphics Design</h4>
-                                    <p>Sebagai Graphic Designer, saya fokus menciptakan identitas visual yang kuat dan berkarakter. Saya percaya bahwa desain yang baik bukan sekadar estetika, melainkan cara efektif untuk menyampaikan pesan dan solusi.</p>
+                                    <h4 class="title" data-lang-key="service_design_title">Graphics Design</h4>
+                                    <p data-lang-key="service_design_desc">Sebagai Graphic Designer, saya fokus menciptakan identitas visual yang kuat dan berkarakter. Saya percaya bahwa desain yang baik bukan sekadar estetika, melainkan cara efektif untuk menyampaikan pesan dan solusi.</p>
                                 </div>
                             </div>
 
                             <div class="col-lg-3 col-sm-6">
                                 <div class="service-item">
                                     <i class="icon-lightbulb"></i>
-                                    <h4 class="title">Dukungan IT</h4>
-                                    <p>Menyediakan solusi teknis yang andal untuk memastikan seluruh infrastruktur digital berjalan tanpa hambatan. Saya berfokus pada pemecahan masalah yang cepat, pemeliharaan sistem, dan memberikan dukungan teknis yang efisien bagi pengguna.</p>
+                                    <h4 class="title" data-lang-key="service_it_title">Dukungan IT</h4>
+                                    <p data-lang-key="service_it_desc">Menyediakan solusi teknis yang andal untuk memastikan seluruh infrastruktur digital berjalan tanpa hambatan. Saya berfokus pada pemecahan masalah yang cepat, pemeliharaan sistem, dan memberikan dukungan teknis yang efisien bagi pengguna.</p>
                                 </div>
                             </div>
 
@@ -197,7 +197,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="page-heading">
-                                <h2 data-shadow="Riwayat Hidup">Riwayat Hidup</h2>
+                                <h2 data-shadow="Riwayat Hidup" data-lang-key="resume_title">Riwayat Hidup</h2>
                             </div>
                         </div>
                     </div>
@@ -206,71 +206,71 @@
 
                         <div class="col-lg-6">
                             <div class="sub-heading">
-                                <h3>Pengalaman</h3>
+                                <h3 data-lang-key="experience_title">Pengalaman</h3>
                             </div>
 
                             <ul class="experience timeline">
 
-                                <li class="event">
-                                    <h4>Teknisi IT</h4>
+                                <li class=\"event\">
+                                    <h4 data-lang-key="experience_1_job">Teknisi IT</h4>
                                     <h5>
-                                        <span class="date">2025-Sampai Saat ini</span>
-                                        <span class="company">Hero Komputer, Medan, Indonesia</span>
+                                        <span class=\"date\" data-lang-key="experience_1_date">2025-Sampai Saat ini</span>
+                                        <span class=\"company\" data-lang-key="experience_1_company">Hero Komputer, Medan, Indonesia</span>
                                     </h5>
-                                    <p>Sebagai Teknisi IT dengan pengalaman satu tahun di toko komputer, saya ahli dalam mendiagnosa kerusakan perangkat keras, optimasi sistem (seperti upgrade SSD/RAM), serta pemeliharaan menyeluruh. Fokus utama saya adalah memberikan solusi yang tepat guna sesuai kebutuhan spesifik pengguna—baik untuk meningkatkan produktivitas harian maupun performa perangkat yang maksimal—dengan tetap mengedepankan efisiensi dan keandalan sistem.</p>
+                                    <p data-lang-key="experience_1_desc">Sebagai Teknisi IT dengan pengalaman satu tahun di toko komputer, saya ahli dalam mendiagnosa kerusakan perangkat keras, optimasi sistem (seperti upgrade SSD/RAM), serta pemeliharaan menyeluruh. Fokus utama saya adalah memberikan solusi yang tepat guna sesuai kebutuhan spesifik pengguna—baik untuk meningkatkan produktivitas harian maupun performa perangkat yang maksimal—dengan tetap mengedepankan efisiensi dan keandalan sistem.</p>
                                 </li>
 
                                 <li class="event">
-                                    <h4>Founder</h4>
+                                    <h4 data-lang-key="experience_2_job">Founder</h4>
                                     <h5>
-                                        <span class="date">2023-Sampai Saat ini</span>
-                                        <span class="company">Sianturi IT, Medan, Indonesia</span>
+                                        <span class=\"date\" data-lang-key="experience_2_date">2023-Sampai Saat ini</span>
+                                        <span class=\"company\" data-lang-key="experience_2_company">Sianturi IT, Medan, Indonesia</span>
                                     </h5>
-                                    <p>Saya juga memiliki Startup Company sebagai awal karir saya mengembangkan skill dan minat saya dalam memenuhi kebutuhan pengguna dibidang IT</p>
+                                    <p data-lang-key="experience_2_desc">Saya juga memiliki Startup Company sebagai awal karir saya mengembangkan skill dan minat saya dalam memenuhi kebutuhan pengguna dibidang IT</p>
                                 </li>
 
                                 <li class="event">
-                                    <h4>Kerani Produksi</h4>
+                                    <h4 data-lang-key="experience_3_job">Kerani Produksi</h4>
                                     <h5>
-                                        <span class="date">2022-2023</span>
-                                        <span class="company">PT Putra Agro Niaga, Indragiri Hilir, Indonesia</span>
+                                        <span class=\"date\" data-lang-key="experience_3_date">2022-2023</span>
+                                        <span class=\"company\" data-lang-key="experience_3_company">PT Putra Agro Niaga, Indragiri Hilir, Indonesia</span>
                                     </h5>
-                                    <p>Memiliki pengalaman selama satu tahun sebagai Kerani Produksi, di mana saya bertanggung jawab dalam mengelola data harian, memantau alur stok, serta menyusun laporan administrasi secara akurat. Pengalaman ini mengasah ketelitian dan disiplin saya dalam bekerja di bawah target, serta memperkuat kemampuan koordinasi tim untuk memastikan kelancaran operasional di lapangan.</p>
+                                    <p data-lang-key="experience_3_desc">Memiliki pengalaman selama satu tahun sebagai Kerani Produksi, di mana saya bertanggung jawab dalam mengelola data harian, memantau alur stok, serta menyusun laporan administrasi secara akurat. Pengalaman ini mengasah ketelitian dan disiplin saya dalam bekerja di bawah target, serta memperkuat kemampuan koordinasi tim untuk memastikan kelancaran operasional di lapangan.</p>
                                 </li>
 
                                 <li class="event">
-                                    <h4>Teknisi Komputer</h4>
+                                    <h4 data-lang-key="experience_4_job">Teknisi Komputer</h4>
                                     <h5>
-                                        <span class="date">2021-2022</span>
-                                        <span class="company">SSD Computer, Sibolga, Indonesia</span>
+                                        <span class=\"date\" data-lang-key="experience_4_date">2021-2022</span>
+                                        <span class=\"company\" data-lang-key="experience_4_company">SSD Computer, Sibolga, Indonesia</span>
                                     </h5>
-                                    <p>Memiliki pengalaman selama satu tahun sebagai Teknisi Komputer di SSD Computer, di mana saya bertanggung jawab dalam menangani berbagai perbaikan perangkat keras dan optimasi sistem. Pengalaman ini membentuk ketelitian saya dalam mendiagnosa masalah teknis dan memberikan solusi perangkat yang efisien bagi pelanggan.</p>
+                                    <p data-lang-key="experience_4_desc">Memiliki pengalaman selama satu tahun sebagai Teknisi Komputer di SSD Computer, di mana saya bertanggung jawab dalam menangani berbagai perbaikan perangkat keras dan optimasi sistem. Pengalaman ini membentuk ketelitian saya dalam mendiagnosa masalah teknis dan memberikan solusi perangkat yang efisien bagi pelanggan.</p>
                                 </li>
                             </ul>
                             </div>
                         <div class="col-lg-6">
                             <div class="sub-heading">
-                                <h3>Pendidikan</h3>
+                                <h3 data-lang-key="education_title">Pendidikan</h3>
                             </div>
 
                             <ul class="education timeline">
 
                                 <li class="event">
-                                    <h4>Management Information Systems</h4>
+                                    <h4 data-lang-key="education_1_school">Management Information Systems</h4>
                                     <h5>
-                                        <span class="date">2023-Saat Ini (2026)</span>
-                                        <span class="company">Budi Darma University, Medan, Indonesia</span>
+                                        <span class=\"date\" data-lang-key="education_1_date">2023-Saat Ini (2026)</span>
+                                        <span class=\"company\" data-lang-key="education_1_place">Budi Darma University, Medan, Indonesia</span>
                                     </h5>
-                                    <p>Melanjutkan studi di jenjang pendidikan tinggi pada program studi Sistem Informasi di Universitas Budi Darma. Fokus utama saya adalah mempelajari integrasi teknologi dengan kebutuhan bisnis, mulai dari pengembangan perangkat lunak hingga manajemen basis data. Pendidikan ini memperdalam landasan teoritis dan praktis saya dalam membangun solusi digital yang efisien.</p>
+                                    <p data-lang-key="education_1_desc">Melanjutkan studi di jenjang pendidikan tinggi pada program studi Sistem Informasi di Universitas Budi Darma. Fokus utama saya adalah mempelajari integrasi teknologi dengan kebutuhan bisnis, mulai dari pengembangan perangkat lunak hingga manajemen basis data. Pendidikan ini memperdalam landasan teoritis dan praktis saya dalam membangun solusi digital yang efisien.</p>
                                 </li>
 
                                 <li class="event">
-                                    <h4>TKJ (Teknologi Komputer & Jaringan)</h4>
+                                    <h4 data-lang-key="education_2_school">TKJ (Teknologi Komputer & Jaringan)</h4>
                                     <h5>
-                                        <span class="date">2019-2022</span>
-                                        <span class="company">Yapim Taruna Pandan, Pandan-Sibolga, Indonesia</span>
+                                        <span class=\"date\" data-lang-key="education_2_date">2019-2022</span>
+                                        <span class=\"company\" data-lang-key="education_2_place">Yapim Taruna Pandan, Pandan-Sibolga, Indonesia</span>
                                     </h5>
-                                    <p>Lulusan Teknik Komputer dan Jaringan (TKJ) dari SMK Yapim Taruna Pandan. Selama masa pendidikan, saya mendalami infrastruktur jaringan, perakitan komputer, dan dasar-dasar sistem operasi. Latar belakang pendidikan ini memberikan saya pemahaman teknis yang mendalam dalam mendukung karier saya di bidang teknologi informasi dan pengembangan web.</p>
+                                    <p data-lang-key="education_2_desc">Lulusan Teknik Komputer dan Jaringan (TKJ) dari SMK Yapim Taruna Pandan. Selama masa pendidikan, saya mendalami infrastruktur jaringan, perakitan komputer, dan dasar-dasar sistem operasi. Latar belakang pendidikan ini memberikan saya pemahaman teknis yang mendalam dalam mendukung karier saya di bidang teknologi informasi dan pengembangan web.</p>
                                 </li>
                             </ul>
                             </div>
@@ -280,7 +280,7 @@
 
                         <div class="col-lg-6 skills">
                             <div class="sub-heading">
-                                <h3>Design Skills</h3>
+                                <h3 data-lang-key="design_skills_title">Design Skills</h3>
                             </div>
 
                             <div class="skill-item">
@@ -315,7 +315,7 @@
                         </div>
                         <div class="col-lg-6 skills">
                             <div class="sub-heading">
-                                <h3 data-shadow="Coding Skills">Coding Skills</h3>
+                                <h3 data-shadow="Coding Skills" data-lang-key="coding_skills_title">Coding Skills</h3>
                             </div>
 
                             <div class="skill-item">
@@ -349,185 +349,12 @@
                         </div>
                     </div>
             </section>
-            <section id="portfolio" class="page section-portfolio">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="page-heading">
-                                <h2 data-shadow="Portfolio">Portfolio</h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12 portfolio-filter">
-                            <ul>
-                                <li class="active" data-filter="*">All</li>
-                                <li data-filter=".brand">Brand</li>
-                                <li data-filter=".design">Design</li>
-                                <li data-filter=".graphic">Graphic</li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="row portfolio-items mb-30">
-
-                        <div class="item col-lg-4 col-sm-6 graphic brand">
-                            <figure>
-                                <img src="img/portfolio/img-1.jpg" alt="">
-
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Graphic</p>
-                                    <i class="fas fa-image"></i>
-                                    <a class="image-link" href="img/portfolio/img-1.jpg">View More</a>
-                                </figcaption>
-
-                            </figure>
-                        </div>
-
-                        <div class="item col-lg-4 col-sm-6 graphic brand">
-                            <figure>
-                                <img src="img/portfolio/img-2.jpg" alt="">
-
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Design</p>
-                                    <i class="fas fa-image"></i>
-                                    <a class="image-link" href="img/portfolio/img-2.jpg">View More</a>
-                                </figcaption>
-
-                            </figure>
-                        </div>
-
-                        <div class="item col-lg-4 col-sm-6 design graphic">
-                            <figure>
-                                <img src="img/portfolio/img-3.jpg" alt="">
-
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Graphic</p>
-                                    <i class="fas fa-video"></i>
-                                    <a class="video-link" href="https://www.youtube.com/watch?v=k_okcNVZqqI">View More</a>
-                                </figcaption>
-
-                            </figure>
-                        </div>
-
-                        <div class="item col-lg-4 col-sm-6 design graphic">
-                            <figure>
-                                <img src="img/portfolio/img-4.jpg" alt="">
-
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Design</p>
-                                    <i class="fas fa-image"></i>
-                                    <a class="image-link" href="img/portfolio/img-4.jpg">View More</a>
-                                </figcaption>
-
-                            </figure>
-                        </div>
-
-                        <div class="item col-lg-4 col-sm-6 graphic">
-                            <figure>
-                                <img src="img/portfolio/img-5.jpg" alt="">
-
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Design</p>
-                                    <i class="fas fa-video"></i>
-                                    <a class="video-link" href="https://www.youtube.com/watch?v=k_okcNVZqqI">View More</a>
-                                </figcaption>
-
-                            </figure>
-                        </div>
-
-                        <div class="item col-lg-4 col-sm-6 brand design">
-                            <figure>
-                                <img src="img/portfolio/img-6.jpg" alt="">
-
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Brand</p>
-                                    <i class="fas fa-image"></i>
-                                    <a class="image-link" href="img/portfolio/img-6.jpg">View More</a>
-                                </figcaption>
-
-                            </figure>
-                        </div>
-
-                        <div class="item col-lg-4 col-sm-6 brand graphic">
-                            <figure>
-                                <img src="img/portfolio/img-7.jpg" alt="">
-
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Brand</p>
-                                    <i class="fas fa-image"></i>
-                                    <a class="image-link" href="img/portfolio/img-7.jpg">View More</a>
-                                </figcaption>
-
-                            </figure>
-                        </div>
-
-                        <div class="item col-lg-4 col-sm-6 brand graphic">
-                            <figure>
-                                <img src="img/portfolio/img-8.jpg" alt="">
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Brand</p>
-                                    <i class="fas fa-image"></i>
-                                    <a class="image-link" href="img/portfolio/img-8.jpg">View More</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-
-                        <div class="item col-lg-4 col-sm-6 brand graphic">
-                            <figure>
-                                <img src="img/portfolio/img-9.jpg" alt="">
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Graphic</p>
-                                    <i class="fas fa-image"></i>
-                                    <a class="image-link" href="img/portfolio/img-9.jpg">View More</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-
-                        <div class="item col-lg-4 col-sm-6 brand graphic">
-                            <figure>
-                                <img src="img/portfolio/img-10.jpg" alt="">
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Graphics Design</p>
-                                    <i class="fas fa-video"></i>
-                                    <a class="video-link" href="https://www.youtube.com/watch?v=k_okcNVZqqI">View More</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-
-                        <div class="item col-lg-4 col-sm-6 brand graphic">
-                            <figure>
-                                <img src="img/portfolio/img-11.jpg" alt="">
-                                <figcaption>
-                                    <h3>Project Name</h3>
-                                    <p>Graphic</p>
-                                    <i class="fas fa-image"></i>
-                                    <a class="image-link" href="img/portfolio/img-11.jpg">View More</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
             <section id="blog" class="page section-blog">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="page-heading">
-                                <h2 data-shadow="Blogs">Blogs</h2>
+                                <h2 data-shadow="Blogs" data-lang-key="blog_title">Blogs</h2>
                             </div>
                         </div>
                     </div>
@@ -542,8 +369,8 @@
                                 </div>
 
                                 <div class="post-content">
-                                    <span class="cat">Website Bussines</span>
-                                    <h3 class="title">Tentang Usaha saya</h3>
+                                    <span class=\"cat\" data-lang-key=\"blog_cat1\">Website Bussines</span>
+                                    <h3 class=\"title\" data-lang-key=\"blog_title1\">Tentang Usaha saya</h3>
                                     <div class="meta">
                                         <span class="date">Posted On Feb 8, 2023</span>
                                     </div>
@@ -561,8 +388,8 @@
 
                                 <div class="post-content">
 
-                                    <span class="cat">Website Personal</span>
-                                    <h3 class="title">Hanya Website Percobaan</h3>
+                                    <span class=\"cat\" data-lang-key=\"blog_cat2\">Website Personal</span>
+                                    <h3 class=\"title\" data-lang-key=\"blog_title2\">Hanya Website Percobaan</h3>
                                     <div class="meta">
                                         <span class="date">Posted On Agust 21, 2021</span>
                                     </div>
@@ -581,8 +408,8 @@
 
                                 <div class="post-content">
 
-                                    <span class="cat">Website News</span>
-                                    <h3 class="title">Blogspot Website</h3>
+                                    <span class=\"cat\" data-lang-key=\"blog_cat3\">Website News</span>
+                                    <h3 class=\"title\" data-lang-key=\"blog_title3\">Blogspot Website</h3>
                                     <div class="meta">
                                         <span class="date">Posted On Jan 22, 2019</span>
                                     </div>
@@ -601,7 +428,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="page-heading">
-                                <h2 data-shadow="Kontak">Kontak</h2>
+                                <h2 data-shadow="Kontak" data-lang-key="contact_title">Kontak</h2>
                             </div>
                         </div>
                     </div>
@@ -609,23 +436,23 @@
                     <div class="row">
                         <div class="col-lg-6 contact-detail">
                             <div class="sub-heading mb-20">
-                                <h3>Hubungi Kami</h3>
+                                <h3 data-lang-key="contact_info_heading">Hubungi Kami</h3>
                             </div>
-                            <p>Jika anda ada pertanyaan maupun Saran Bisa hubungi Di bawah.</p>
+                            <p data-lang-key="contact_info_text">Jika anda ada pertanyaan maupun Saran Bisa hubungi Di bawah.</p>
                             <ul class="contact-info">
                                 <li class="phone">
-                                    <span class="title">Phone</span><span class="value">+6282268426070</span>
+                                    <span class="title" data-lang-key="contact_phone">Phone</span><span class="value">+6282268426070</span>
                                 </li>
                                 <li class="address">
-                                    <span class="title">Alamat</span><span class="value">Medan,Indonesia</span>
+                                    <span class="title" data-lang-key="contact_address">Alamat</span><span class="value">Medan,Indonesia</span>
                                 </li>
                                 <li class="email">
-                                    <span class="title">E-mail</span><span class="value">sstepin3rd@gmail.com</span>
+                                    <span class="title" data-lang-key="contact_email">E-mail</span><span class="value">sstepin3rd@gmail.com</span>
                                 </li>
                             </ul>
 
                             <div class="social-media">
-                                <h4>Follow</h4>
+                                <h4 data-lang-key="contact_follow">Follow</h4>
                                 <div class="social-media-icons">
                                     <a href="https://web.facebook.com/Reymon.Offcial16"><i class="fab fa-facebook"></i></a>
                                     <a href="https://www.instagram.com/rymn_vbs"><i class="fab fa-instagram"></i></a>
@@ -639,21 +466,21 @@
                         <div class="col-lg-6">
                             <form id="contact-form" method="POST" action="https://formspree.io/f/mjgednya">
                                 <div class="input">
-                                    <input class="input-field cf-validate" id="cf-name" type="text" name="name" placeholder="Masukkan Nama"/>
+                                    <input class="input-field cf-validate" id="cf-name" type="text" name="name" data-lang-key="contact_form_name" placeholder="Masukkan Nama"/>
                                 </div>
 
                                 <div class="input">
-                                    <input class="input-field cf-validate" id="cf-email" type="text" name="email" placeholder="Masukkan Email"/>
+                                    <input class="input-field cf-validate" id="cf-email" type="text" name="email" data-lang-key="contact_form_email" placeholder="Masukkan Email"/>
                                 </div>
 
                                 <div class="input">
-                                    <textarea class="input-field cf-validate" id="cf-message" name="message" rows="5" placeholder="Masukkan Pesan"></textarea>
+                                    <textarea class="input-field cf-validate" id="cf-message" name="message" rows="5" data-lang-key="contact_form_message" placeholder="Masukkan Pesan"></textarea>
                                 </div>
  
                                 <div class="alert-container col-md-12"></div>
 
                                 <div class="submit-button text-center">
-                                    <button class="main-btn" id="cf-submit">Kirim Pesan</button>
+                                    <button class="main-btn" id="cf-submit" data-lang-key="contact_form_send">Kirim Pesan</button>
                                 </div>
 
                             </form>
@@ -675,20 +502,20 @@
 
         <div id="chat-window" class="chat-window">
             <div class="chat-header">
-                <span>Chat Live</span>
+                <span data-lang-key="chat_header">Chat Live</span>
                 <button id="close-chat-btn" class="close-chat-btn">&times;</button>
             </div>
             <div class="chat-body" id="chat-body">
-                <p class="bot-msg">Halo! Ada yang bisa saya bantu? Silakan ketik pesan atau pilih opsi cepat di bawah.</p>
+                <p class="bot-msg" data-lang-key="chat_greeting">Halo! Ada yang bisa saya bantu? Silakan ketik pesan atau pilih opsi cepat di bawah.</p>
                 
                 <div class="quick-replies">
-                    <button class="quick-reply-btn">Saya tertarik dengan portfolio Anda!</button>
-                    <button class="quick-reply-btn">Bagaimana saya bisa menghubungi Anda?</button>
-                    <button class="quick-reply-btn">Mari diskusi untuk kerja sama.</button>
+                    <button class="quick-reply-btn" data-lang-key="chat_reply1">Saya tertarik dengan portfolio Anda!</button>
+                    <button class="quick-reply-btn" data-lang-key="chat_reply2">Bagaimana saya bisa menghubungi Anda?</button>
+                    <button class="quick-reply-btn" data-lang-key="chat_reply3">Mari diskusi untuk kerja sama.</button>
                 </div>
             </div>
             <div class="chat-footer">
-                <input type="text" id="chat-input" placeholder="Ketik pesan..." />
+                <input type="text" id="chat-input" data-lang-key="chat_placeholder" placeholder="Ketik pesan..." />
                 <button id="send-chat-btn" class="send-chat-btn">
                     <i class="fas fa-paper-plane"></i>
                 </button>
@@ -696,6 +523,7 @@
         </div>
         
         <script src="js/jquery.min.js"></script>
+        <script src="js/lang.js"></script>
         <script src="js/plugins.min.js"></script>
         <script src="js/main.js"></script>
         
