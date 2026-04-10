@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #0ea5e9;
+    --primary-gradient: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+    --accent-glow: 0 0 20px rgba(14, 165, 233, 0.4);
+    --glass-bg: rgba(15, 23, 42, 0.8);
+    --glass-border: rgba(56, 189, 248, 0.2);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --bg-deep: #020617;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-deep) !important;
+}
+
+/* Fix interactivity for original buttons */
+.menu-button, .logo {
+    pointer-events: auto !important;
+    z-index: 100000 !important; /* Higher than nav-menu--open */
+}
+
+.main-btn, .nav-menu--link {
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+}
+
+/* Background Refinements */
+.page.section-home {
+    background-image: url('../img/background/premium-bg.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.page.section-home:before {
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-deep) 100%) !important;
+    opacity: 0.8 !important;
+}
+
+/* Styling existing elements without breaking layout */
+.page {
+    background-color: var(--bg-deep) !important;
+}
+
+.page-heading h2 {
+    color: var(--text-main) !important;
+    font-weight: 800 !important;
+}
+
+.page-heading h2:before {
+    opacity: 0.05 !important;
+    color: #38bdf8 !important;
+    font-family: 'Fira Code', monospace !important;
+}
+
+/* Glass Panels for items */
+.service-item, .blog-item, .event, .skill-item {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.service-item:hover, .blog-item:hover {
+    box-shadow: var(--accent-glow) !important;
+    transform: translateY(-5px) !important;
+}
+
+.service-item i {
+    color: var(--primary-color) !important;
+    text-shadow: 0 0 15px rgba(14, 165, 233, 0.4) !important;
+}
+
+/* Form Styles */
+form {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 16px !important;
+}
+
+form .input-field {
+    border-bottom: 2px solid var(--glass-border) !important;
+    color: var(--text-main) !important;
+}
+
+/* Navigation Buttons */
+.menu-button, .logo {
+    background: var(--glass-bg) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 10px !important;
+}
+
+.menu-button:before, .logo:before {
+    display: none !important;
+}
+
+.menu-button span {
+    background-color: var(--primary-color) !important;
+}
+
+.logo span {
+    color: var(--primary-color) !important;
+}
+
+/* Override all yellow/tan bits from style.css/blue-color.css */
+.section-about .about-info p strong,
+.section-blog .blog-item .post-content .cat,
+.section-resume .experience h5,
+.section-resume .education h5,
+.section-resume .skills .skill-item .progress .progress-bar .progress-value,
+.single-blog .blog-category li a {
+    color: var(--primary-color) !important;
+}
+
+.section-resume .experience .event:after,
+.section-resume .education .event:after {
+    box-shadow: 0 0 0 4px var(--primary-color) !important;
+    background: var(--bg-deep) !important;
+}
+
+.progress-bar {
+    background: var(--primary-gradient) !important;
+}
+
+.main-btn {
+    background: var(--primary-gradient) !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+/* --- Background aesthetic blobs & Tech Grid --- */
+.bg-blobs {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1; pointer-events: none;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+}
+
+.bg-blobs:after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(14, 165, 233, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 165, 233, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+.blob {
+    position: absolute; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
+    filter: blur(60px); opacity: 0.6;
+}
+.blob-1 { top: -200px; left: -100px; }
+.blob-2 { bottom: -200px; right: -100px; }
+
+/* Scanline Effect for Home */
+.page.section-home:after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    background-size: 100% 3px, 3px 100%;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.2;
+}
+
+/* --- Fix Residual Yellow --- */
+.page.section-home .banner-text .animate-title,
+.profile-img img {
+    color: var(--primary-color) !important;
+}
+
+.chat-widget-btn, 
+#chat-widget-btn {
+    background: var(--primary-gradient) !important;
+    background-color: var(--primary-color) !important;
+}
+
+/* Fix social icons in menu */
+.social-links .social-link i {
+    color: var(--primary-color) !important;
+}
+
+/* --- Fix Menu Layout (Visibility) --- */
+header .nav-menu.nav-menu--open {
+    z-index: 10001 !important;
+    pointer-events: auto !important;
+    background: rgba(2, 6, 23, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+}
+
+header .nav-menu--link {
+    color: #cbd5e1 !important;
+    font-family: 'Inter', sans-serif !important;
+    transition: color 0.3s ease, transform 0.3s ease !important;
+}
+
+header .nav-menu--link i {
+    color: var(--primary-color) !important;
+    transition: transform 0.3s ease !important;
+}
+
+header .nav-menu--link:hover,
+header .nav-menu--link.link--active {
+    color: var(--text-main) !important;
+}
+
+header .nav-menu--link:hover i {
+    transform: translateY(-5px) scale(1.1);
+    color: var(--text-main) !important;
+}
+
+header .nav-menu .social-links {
+    margin-top: 30px !important;
+}
+
+/* --- Final Color Sync (100% Yellow Removal) --- */
+
+/* About List & Contact Detail Underlines */
+.section-about .about-info .about-list li .title:before,
+.section-contact .contact-detail .contact-info li .title:before,
+.section-contact .contact-detail .social-media h4:before,
+.sub-heading h3:before {
+    background-color: var(--primary-color) !important;
+    background: var(--primary-gradient) !important;
+}
+
+/* Timeline/Resume Vertical Lines & Circles */
+.section-resume .experience,
+.section-resume .education {
+    border-left: 2px solid rgba(14, 165, 233, 0.3) !important;
+}
+
+.section-resume .experience .event:after,
+.section-resume .education .event:after {
+    box-shadow: 0 0 0 4px var(--primary-color) !important;
+    background: var(--bg-deep) !important;
+}
+
+/* Specific Skill/Language Icons (JS, HTML5, etc) */
+.fa-js, .fa-js-square, .fa-html5, .fa-css3-alt, .fa-node-js, .fa-react {
+    color: var(--primary-color) !important;
+}
+
+/* Language Switcher Fix (if yellow) */
+#language-switcher-btn {
+    border-color: var(--glass-border) !important;
+    color: var(--text-main) !important;
+}
+
+/* --- Hero Slideshow Styling --- */
+.text-slideshow h2 {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 3rem !important;
+    text-transform: uppercase;
+    color: #38bdf8 !important; /* Extremely sharp solid color */
+    font-weight: 800 !important;
+    text-shadow: none !important; /* Removed all glow/blur effects */
+}
+
+.pages-stack--open .page {
+    filter: blur(15px) brightness(0.2) !important;
+}
+
+.pages-stack--open {
+    pointer-events: auto !important;
+}
